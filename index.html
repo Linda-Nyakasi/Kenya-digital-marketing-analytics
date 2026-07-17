@@ -11,7 +11,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nairobi Fashion Hub · Social Analytics Demo</title>
+  <title>Nairobi Fashion Hub · Interactive Demo</title>
   <style>
     * { box-sizing: border-box; margin: 0; }
     body {
@@ -20,11 +20,7 @@
       color: #1e1e2a;
       padding: 24px 16px;
     }
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    /* header card */
+    .container { max-width: 1100px; margin: 0 auto; }
     .header-card {
       background: white;
       padding: 32px 24px;
@@ -34,17 +30,8 @@
       text-align: center;
       margin-bottom: 32px;
     }
-    h1 {
-      font-size: 2rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-    }
-    .subtitle {
-      color: #4a4a5a;
-      max-width: 560px;
-      margin: 8px auto 24px;
-      line-height: 1.5;
-    }
+    h1 { font-size: 2rem; font-weight: 700; letter-spacing: -0.02em; }
+    .subtitle { color: #4a4a5a; max-width: 560px; margin: 8px auto 24px; line-height: 1.5; }
     .whatsapp-btn {
       display: inline-block;
       background: #25D366;
@@ -59,7 +46,6 @@
     }
     .whatsapp-btn:hover { background: #128C7E; }
 
-    /* side menu + main layout */
     .dashboard {
       display: flex;
       flex-wrap: wrap;
@@ -91,15 +77,9 @@
       font-weight: 500;
       transition: background 0.15s;
       margin-bottom: 4px;
+      cursor: pointer;
     }
-    .side-menu a:hover {
-      background: #f0f2f8;
-    }
-    .side-menu .menu-label {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .side-menu a:hover { background: #f0f2f8; }
     .side-menu .badge {
       background: #eaeef5;
       font-size: 0.7rem;
@@ -108,12 +88,9 @@
       color: #3d3d50;
       margin-left: auto;
     }
+    .main-content { flex: 3 1 500px; }
 
-    .main-content {
-      flex: 3 1 500px;
-    }
-
-    /* filter pills */
+    /* filter */
     .filter-bar {
       display: flex;
       gap: 8px;
@@ -131,8 +108,7 @@
       transition: 0.15s;
       color: #2c2c3a;
     }
-    .filter-btn.active,
-    .filter-btn:hover {
+    .filter-btn.active, .filter-btn:hover {
       background: #1e1e2a;
       color: white;
       border-color: #1e1e2a;
@@ -171,26 +147,10 @@
       margin-bottom: 12px;
       background-image: linear-gradient(145deg, #f0f3fa, #e6eaf2);
     }
-    .product-title {
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 2px;
-    }
-    .product-price {
-      font-weight: 700;
-      color: #c4421e;
-      font-size: 0.95rem;
-      margin: 4px 0 10px;
-    }
-    .product-cta {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: #1e1e2a;
-      border-bottom: 2px solid #d0d5e0;
-      padding-bottom: 2px;
-    }
+    .product-title { font-weight: 600; font-size: 1rem; margin-bottom: 2px; }
+    .product-price { font-weight: 700; color: #c4421e; font-size: 0.95rem; margin: 4px 0 10px; }
+    .product-cta { font-size: 0.8rem; font-weight: 600; color: #1e1e2a; border-bottom: 2px solid #d0d5e0; padding-bottom: 2px; }
 
-    /* section cards */
     .section-card {
       background: white;
       border-radius: 20px;
@@ -199,13 +159,7 @@
       margin-bottom: 28px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.02);
     }
-    .section-card h2 {
-      font-size: 1.2rem;
-      font-weight: 600;
-      margin-top: 0;
-      margin-bottom: 18px;
-      letter-spacing: -0.01em;
-    }
+    .section-card h2 { font-size: 1.2rem; font-weight: 600; margin-top: 0; margin-bottom: 18px; }
     .testimonial {
       padding: 12px 0;
       border-bottom: 1px solid #f0f2f8;
@@ -214,6 +168,13 @@
     }
     .testimonial:last-child { border-bottom: none; }
     .testimonial strong { color: #111; }
+    .inline-link {
+      color: #1e1e2a;
+      font-weight: 500;
+      text-decoration: underline 2px #d0d5e0;
+      cursor: pointer;
+    }
+    .inline-link:hover { color: #000; }
 
     .newsletter-form {
       display: flex;
@@ -256,52 +217,89 @@
       border: 1px solid transparent;
       transition: 0.15s;
     }
-    .social-links a:hover {
-      background: #e3e7f0;
-      border-color: #c8cedc;
-    }
-    footer {
-      font-size: 0.8rem;
-      color: #86869c;
-      text-align: center;
-      margin: 30px 0 10px;
-    }
+    .social-links a:hover { background: #e3e7f0; border-color: #c8cedc; }
+    footer { font-size: 0.8rem; color: #86869c; text-align: center; margin: 30px 0 10px; }
     .form-note { font-size: 0.8rem; color: #7a7a8e; margin-top: 8px; }
-    .inline-link { color: #1e1e2a; font-weight: 500; text-decoration: underline 2px #d0d5e0; }
+
+    /* detail overlay (modal) */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.35);
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
+    }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal-box {
+      background: white;
+      max-width: 600px;
+      width: 100%;
+      border-radius: 28px;
+      padding: 32px 28px;
+      box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+      position: relative;
+      max-height: 80vh;
+      overflow-y: auto;
+      transform: scale(0.96);
+      transition: transform 0.2s ease;
+    }
+    .modal-overlay.active .modal-box { transform: scale(1); }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: #6b6b7e;
+      background: none;
+      border: none;
+      line-height: 1;
+    }
+    .modal-close:hover { color: #1e1e2a; }
+    .modal-box h2 { margin-top: 0; font-size: 1.6rem; }
+    .modal-box .meta { color: #4a4a5a; margin-bottom: 12px; font-weight: 500; }
+    .modal-box .desc { line-height: 1.6; color: #2d2d3d; }
+    .modal-box .detail-list { list-style: none; padding: 0; }
+    .modal-box .detail-list li { padding: 6px 0; border-bottom: 1px solid #f0f2f8; }
+    .modal-box .detail-list strong { color: #1e1e2a; }
   </style>
 </head>
 <body>
 <div class="container">
-
-  <!-- header -->
   <div class="header-card">
     <h1>Nairobi Fashion Hub</h1>
     <p class="subtitle">Premium locally-tailored contemporary wear — delivered across Nairobi.</p>
     <a href="https://wa.me/254747990254?text=Hi!%20I%20am%20inquiring%20about%20your%20designs%20from%20Social%20Media."
-       class="whatsapp-btn"
-       id="whatsapp-conversion-link"
+       class="whatsapp-btn" id="whatsapp-conversion-link"
        onclick="gtag('event', 'whatsapp_click', { 'event_category': 'engagement', 'event_label': 'header_cta' });">
       💬 Order / Inquire via WhatsApp
     </a>
   </div>
 
-  <!-- dashboard with side menu + main -->
   <div class="dashboard">
-    <!-- SIDE MENU (clickable sections) -->
+    <!-- side menu -->
     <div class="side-menu">
       <h3>📌 browse</h3>
-      <a href="#about-us" onclick="trackMenuClick('about')"><span class="menu-label">About Us</span></a>
-      <a href="#careers" onclick="trackMenuClick('careers')"><span class="menu-label">Careers <span class="badge">2 open</span></span></a>
-      <a href="#testimonials" onclick="trackMenuClick('testimonials')"><span class="menu-label">Testimonials</span></a>
-      <a href="#blog" onclick="trackMenuClick('blog')"><span class="menu-label">From the Blog</span></a>
-      <a href="#shop" onclick="trackMenuClick('shop')"><span class="menu-label">🛍️ Shop All</span></a>
-      <a href="#social" onclick="trackMenuClick('social')"><span class="menu-label">📱 Follow Us</span></a>
+      <a onclick="scrollToSection('about-us'); trackMenuClick('about')">About Us</a>
+      <a onclick="scrollToSection('careers'); trackMenuClick('careers')">Careers <span class="badge">2 open</span></a>
+      <a onclick="scrollToSection('testimonials'); trackMenuClick('testimonials')">Testimonials</a>
+      <a onclick="scrollToSection('blog'); trackMenuClick('blog')">From the Blog</a>
+      <a onclick="scrollToSection('shop'); trackMenuClick('shop')">🛍️ Shop All</a>
+      <a onclick="scrollToSection('social'); trackMenuClick('social')">📱 Follow Us</a>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div class="main-content">
-
-      <!-- About (visible) -->
+      <!-- About -->
       <div class="section-card" id="about-us">
         <h2>📍 About Us</h2>
         <p style="font-size:0.95rem; color:#3d3d52; line-height:1.6;">
@@ -311,7 +309,7 @@
         </p>
       </div>
 
-      <!-- filter + product grid (shop) -->
+      <!-- Shop -->
       <div id="shop">
         <div class="filter-bar">
           <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
@@ -319,25 +317,25 @@
           <button class="filter-btn" onclick="filterCategory('outerwear', this)">Outerwear</button>
         </div>
         <div class="product-grid" id="product-grid">
-          <div class="product-card" data-category="dresses" onclick="trackProductClick('Mombasa Summer Dress', 3500)">
+          <div class="product-card" data-category="dresses" onclick="openProductDetail('Mombasa Summer Dress', 'Ksh 3,500', 'A light, breathable summer dress in vibrant African print. Perfect for warm days and casual outings. Made from 100% cotton, machine washable.')">
             <div class="product-thumb">🧵 Summer Dress</div>
             <p class="product-title">Mombasa Summer Dress</p>
             <p class="product-price">Ksh 3,500</p>
             <span class="product-cta">View →</span>
           </div>
-          <div class="product-card" data-category="outerwear" onclick="trackProductClick('Nairobi Casual Blazer', 4800)">
+          <div class="product-card" data-category="outerwear" onclick="openProductDetail('Nairobi Casual Blazer', 'Ksh 4,800', 'A sharp, versatile blazer tailored from premium Kenyan wool-blend. Ideal for office or smart-casual events. Available in navy, charcoal, and khaki.')">
             <div class="product-thumb">🧥 Casual Blazer</div>
             <p class="product-title">Nairobi Casual Blazer</p>
             <p class="product-price">Ksh 4,800</p>
             <span class="product-cta">View →</span>
           </div>
-          <div class="product-card" data-category="outerwear" onclick="trackProductClick('Rift Valley Trench Coat', 6000)">
+          <div class="product-card" data-category="outerwear" onclick="openProductDetail('Rift Valley Trench Coat', 'Ksh 6,000', 'Classic trench coat with a modern fit. Water-resistant, with a removable liner for Nairobi’s changing weather. Double-breasted, belted waist.')">
             <div class="product-thumb">🧥 Trench Coat</div>
             <p class="product-title">Rift Valley Trench Coat</p>
             <p class="product-price">Ksh 6,000</p>
             <span class="product-cta">View →</span>
           </div>
-          <div class="product-card" data-category="dresses" onclick="trackProductClick('Karen Evening Gown', 8500)">
+          <div class="product-card" data-category="dresses" onclick="openProductDetail('Karen Evening Gown', 'Ksh 8,500', 'Elegant floor-length gown with a subtle train. Designed for galas, weddings, and formal evenings. Made from luxe satin with delicate beadwork.')">
             <div class="product-thumb">👗 Evening Gown</div>
             <p class="product-title">Karen Evening Gown</p>
             <p class="product-price">Ksh 8,500</p>
@@ -354,40 +352,38 @@
         <div class="testimonial"><strong>Faith N.</strong> · Nairobi: "Ordered twice via WhatsApp, very smooth."</div>
       </div>
 
-      <!-- Blog (clickable links) -->
+      <!-- Blog (clickable links -> open modal with dummy content) -->
       <div class="section-card" id="blog">
         <h2>📝 From the Blog</h2>
         <div class="testimonial">
           <strong>5 Ways to Style a Trench Coat for Nairobi Weather</strong><br>
           <span style="color:#4a4a5e;">Layering tips for rainy & dry seasons.</span>
-          <a href="#" onclick="trackBlogClick('trench_coat_styling'); return false;" style="margin-left:8px; font-weight:500;">Read →</a>
+          <span class="inline-link" onclick="openBlogDetail('Trench Coat Styling', 'Nairobi’s weather can change in minutes. Here are 5 ways to style your trench coat: layer with a chunky knit, belt it over a dress, wear open with a hoodie, pair with shorts for a playful look, or go classic with jeans. Our favourite: trench over a tailored suit for a power look.')">Read →</span>
         </div>
         <div class="testimonial">
           <strong>Behind the Seams: Meet Our Tailors</strong><br>
           <span style="color:#4a4a5e;">Get to know the team in South B.</span>
-          <a href="#" onclick="trackBlogClick('meet_our_tailors'); return false;" style="margin-left:8px; font-weight:500;">Read →</a>
+          <span class="inline-link" onclick="openBlogDetail('Behind the Seams', 'Our team of 12 tailors brings decades of combined experience. From pattern cutting to hand-finishing, every piece reflects pride in craftsmanship. Meet Mama Grace, who has been tailoring for 22 years, and James, our newest apprentice. We believe in fair wages and continuous training.')">Read →</span>
         </div>
         <div class="testimonial">
           <strong>Caring for Locally Made Fabrics</strong><br>
           <span style="color:#4a4a5e;">Washing & storage tips.</span>
-          <a href="#" onclick="trackBlogClick('fabric_care'); return false;" style="margin-left:8px; font-weight:500;">Read →</a>
+          <span class="inline-link" onclick="openBlogDetail('Fabric Care Guide', 'To keep your Kenyan-made garments looking new: wash inside out in cold water, avoid harsh detergents, air dry in shade, and store with cedar blocks to deter moths. For wool blends, professional dry cleaning is recommended.')">Read →</span>
         </div>
       </div>
 
-      <!-- Careers (with WhatsApp apply links) -->
+      <!-- Careers (clickable roles -> full details) -->
       <div class="section-card" id="careers">
         <h2>🧑‍💼 Careers</h2>
         <div class="testimonial">
           <strong>Tailor / Seamstress</strong> · Nairobi (Full-time)<br>
           <span style="color:#3d3d52;">Experience with contemporary womenswear preferred.</span>
-          <a href="https://wa.me/254799023508?text=Hi!%20I%20am%20inquiring%20about%20the%20Tailor%20position."
-             onclick="trackCareerClick('tailor_seamstress');" style="margin-left:8px; font-weight:500;">Apply via WhatsApp →</a>
+          <span class="inline-link" onclick="openCareerDetail('Tailor / Seamstress', '📍 Location: South B, Nairobi\n💰 Salary: Ksh 45,000 – 60,000/month\n📋 Minimum: 3 years tailoring experience, proficiency with industrial machines.\n✨ Desired: Pattern-making skills, experience with African prints.\n🏆 Success: Consistently meeting quality and delivery targets, positive customer feedback.\n🤝 Work with us: We are a close-knit team that values creativity, punctuality, and mutual respect.')">Apply →</span>
         </div>
         <div class="testimonial">
           <strong>Delivery Rider</strong> · Nairobi (Part-time)<br>
           <span style="color:#3d3d52;">Own motorbike & valid license required.</span>
-          <a href="https://wa.me/254799023508?text=Hi!%20I%20am%20inquiring%20about%20the%20Delivery%20Rider%20position."
-             onclick="trackCareerClick('delivery_rider');" style="margin-left:8px; font-weight:500;">Apply via WhatsApp →</a>
+          <span class="inline-link" onclick="openCareerDetail('Delivery Rider', '📍 Location: Nairobi (various routes)\n💰 Salary: Ksh 25,000 – 35,000/month + fuel allowance\n📋 Minimum: Valid motorcycle license, own bike, smartphone with GPS.\n✨ Desired: Familiarity with Nairobi roads, good communication skills.\n🏆 Success: On-time deliveries, positive customer interactions, careful handling of packages.\n🤝 Work with us: We value reliability and a positive attitude. You’ll be the face of our brand on the road.')">Apply →</span>
         </div>
       </div>
 
@@ -401,91 +397,116 @@
         <p class="form-note">No spam, just new drops and offers.</p>
       </div>
 
-      <!-- Social links (outbound) -->
+      <!-- Social -->
       <div class="section-card" id="social">
         <h2>📱 Follow us</h2>
         <div class="social-links">
-          <a href="https://instagram.com" target="_blank" rel="noopener"
-             onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'instagram' });">Instagram</a>
-          <a href="https://facebook.com" target="_blank" rel="noopener"
-             onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'facebook' });">Facebook</a>
-          <a href="https://tiktok.com" target="_blank" rel="noopener"
-             onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'tiktok' });">TikTok</a>
-          <a href="https://x.com" target="_blank" rel="noopener"
-             onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'x_twitter' });">X (Twitter)</a>
+          <a href="https://instagram.com" target="_blank" rel="noopener" onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'instagram' });">Instagram</a>
+          <a href="https://facebook.com" target="_blank" rel="noopener" onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'facebook' });">Facebook</a>
+          <a href="https://tiktok.com" target="_blank" rel="noopener" onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'tiktok' });">TikTok</a>
+          <a href="https://x.com" target="_blank" rel="noopener" onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'x_twitter' });">X (Twitter)</a>
         </div>
       </div>
-
       <footer>© 2026 Nairobi Fashion Hub · Demo for analytics &amp; social tracking</footer>
     </div>
   </div>
 </div>
 
+<!-- MODAL OVERLAY (reused for products, blog, careers) -->
+<div class="modal-overlay" id="detailModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div id="modalContent">
+      <h2 id="modalTitle">Title</h2>
+      <div id="modalBody" class="desc"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-  // ------- GA tracking helpers -------
-
-  // product click
-  function trackProductClick(name, price) {
-    gtag('event', 'select_item', {
-      'event_category': 'product',
-      'event_label': name,
-      'value': price
-    });
+  // ----- helper: scroll to section -----
+  function scrollToSection(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // blog click
-  function trackBlogClick(articleId) {
-    gtag('event', 'blog_click', {
-      'event_category': 'content',
-      'event_label': articleId
-    });
+  // ----- modal controls -----
+  function openModal(title, bodyHTML) {
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalBody').innerHTML = bodyHTML;
+    document.getElementById('detailModal').classList.add('active');
+    // GA event for modal view (generic)
+    gtag('event', 'view_detail', { 'event_category': 'engagement', 'event_label': title });
   }
 
-  // career click (apply via WhatsApp)
-  function trackCareerClick(roleId) {
-    gtag('event', 'career_click', {
-      'event_category': 'careers',
-      'event_label': roleId
-    });
+  function closeModal() {
+    document.getElementById('detailModal').classList.remove('active');
+  }
+  // close on overlay click
+  document.getElementById('detailModal').addEventListener('click', function(e) {
+    if (e.target === this) closeModal();
+  });
+
+  // ----- product detail -----
+  function openProductDetail(name, price, description) {
+    const html = `
+      <p class="meta">${price} · in stock</p>
+      <p class="desc">${description}</p>
+      <p style="margin-top:16px;"><span class="inline-link" onclick="gtag('event','add_to_cart',{'event_label':'${name}'}); alert('Added to cart (demo)');">Add to cart</span> · 
+      <a href="https://wa.me/254747990254?text=Hi!%20I%20want%20to%20order%20${encodeURIComponent(name)}" target="_blank" style="font-weight:500;">Order on WhatsApp</a></p>
+    `;
+    openModal(name, html);
+    gtag('event', 'product_detail_view', { 'event_category': 'product', 'event_label': name });
   }
 
-  // side menu click
-  function trackMenuClick(section) {
-    gtag('event', 'menu_click', {
-      'event_category': 'navigation',
-      'event_label': section
-    });
+  // ----- blog detail (dummy content) -----
+  function openBlogDetail(title, content) {
+    const html = `<p class="desc">${content}</p><p style="margin-top:12px; color:#4a4a5a;">— Published in the Nairobi Fashion Hub blog</p>`;
+    openModal(title, html);
+    gtag('event', 'blog_detail_view', { 'event_category': 'content', 'event_label': title });
   }
 
-  // category filter
+  // ----- career detail (full description) -----
+  function openCareerDetail(title, details) {
+    // details is a multiline string with labels: location, salary, etc.
+    const lines = details.split('\n').filter(l => l.trim() !== '');
+    let html = '<ul class="detail-list">';
+    lines.forEach(line => {
+      const parts = line.split(':');
+      if (parts.length >= 2) {
+        const label = parts[0].trim();
+        const value = parts.slice(1).join(':').trim();
+        html += `<li><strong>${label}</strong>: ${value}</li>`;
+      } else {
+        html += `<li>${line}</li>`;
+      }
+    });
+    html += '</ul>';
+    html += `<p style="margin-top:16px;"><a href="https://wa.me/254799023508?text=Hi!%20I%20am%20interested%20in%20the%20${encodeURIComponent(title)}%20position" target="_blank" style="font-weight:500;">Apply via WhatsApp →</a></p>`;
+    openModal(title, html);
+    gtag('event', 'career_detail_view', { 'event_category': 'careers', 'event_label': title });
+  }
+
+  // ----- filter -----
   function filterCategory(category, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
-
     document.querySelectorAll('.product-card').forEach(card => {
-      const show = category === 'all' || card.getAttribute('data-category') === category;
+      const show = category === 'all' || card.dataset.category === category;
       card.style.display = show ? '' : 'none';
     });
-
-    gtag('event', 'filter_select', {
-      'event_category': 'engagement',
-      'event_label': category
-    });
+    gtag('event', 'filter_select', { 'event_category': 'engagement', 'event_label': category });
   }
 
-  // newsletter signup
+  // ----- newsletter -----
   function handleNewsletterSubmit(event) {
     event.preventDefault();
-    gtag('event', 'sign_up', {
-      'event_category': 'conversion',
-      'event_label': 'newsletter'
-    });
-    alert('Thanks for subscribing! (demo, no email stored)');
+    gtag('event', 'sign_up', { 'event_category': 'conversion', 'event_label': 'newsletter' });
+    alert('Thanks for subscribing! (demo)');
     document.getElementById('newsletter-email').value = '';
     return false;
   }
 
-  // scroll depth tracking (25/50/75/100)
+  // ----- scroll depth -----
   (function() {
     const milestones = [25, 50, 75, 100];
     const reached = new Set();
@@ -497,25 +518,22 @@
       milestones.forEach(m => {
         if (percent >= m && !reached.has(m)) {
           reached.add(m);
-          gtag('event', 'scroll_depth', {
-            'event_category': 'engagement',
-            'event_label': m + '%'
-          });
+          gtag('event', 'scroll_depth', { 'event_category': 'engagement', 'event_label': m + '%' });
         }
       });
     }
     window.addEventListener('scroll', checkScroll);
   })();
 
-  // 30-second time-on-page
-  setTimeout(function() {
-    gtag('event', 'time_on_page', {
-      'event_category': 'engagement',
-      'event_label': '30_seconds'
-    });
+  // ----- time on page -----
+  setTimeout(() => {
+    gtag('event', 'time_on_page', { 'event_category': 'engagement', 'event_label': '30_seconds' });
   }, 30000);
 
-  // additional: track WhatsApp link in careers and header are already handled inline.
+  // menu click tracking (used in side menu)
+  function trackMenuClick(section) {
+    gtag('event', 'menu_click', { 'event_category': 'navigation', 'event_label': section });
+  }
 </script>
 </body>
 </html>
