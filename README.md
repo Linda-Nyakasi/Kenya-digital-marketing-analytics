@@ -2,7 +2,7 @@
 
 A dummy e-commerce landing page built to demonstrate Google Analytics 4 (GA4) event tracking and social-to-WhatsApp funnel analysis, hosted on GitHub Pages.
 
-**Live site:** [add your GitHub Pages URL here]
+**[Live site:](https://linda-nyakasi.github.io/Kenya-digital-marketing-analytics/)**
 
 ## Project Background
 
