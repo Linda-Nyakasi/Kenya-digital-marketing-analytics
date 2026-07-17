@@ -138,7 +138,6 @@
     }
     .product-thumb {
       height: 120px;
-      background: #f0f3fa;
       border-radius: 12px;
       display: flex;
       align-items: center;
@@ -147,7 +146,9 @@
       color: #5b5b70;
       font-weight: 500;
       margin-bottom: 12px;
-      background-image: linear-gradient(145deg, #f0f3fa, #e6eaf2);
+      background-size: cover;
+      background-position: center;
+      background-color: #f0f3fa;
     }
     .product-title { font-weight: 600; font-size: 1rem; margin-bottom: 2px; }
     .product-price { font-weight: 700; color: #c4421e; font-size: 0.95rem; margin: 4px 0 10px; }
@@ -240,6 +241,9 @@
       color: #0066cc;
       cursor: pointer;
       font-weight: 500;
+      background: none;
+      border: none;
+      font-size: 1rem;
     }
     .detail-page .back-btn:hover { text-decoration: underline; }
     .detail-page h2 { font-size: 1.8rem; margin-bottom: 12px; }
@@ -257,11 +261,24 @@
       border-radius: 60px;
       text-decoration: none;
       font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
     }
     .detail-page .action-btn:hover { background: #128C7E; }
+    .detail-page .product-image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      background: #f0f3fa;
+    }
 
-    /* Hide main content when detail is active */
-    .main-content .section-card.hide { display: none; }
+    /* Hide/show views */
+    #homeView { display: block; }
+    #homeView.hidden { display: none; }
+    .section-card.hidden { display: none; }
   </style>
 </head>
 <body>
@@ -289,7 +306,7 @@
     </div>
 
     <div class="main-content" id="mainContent">
-      <!-- HOME / DEFAULT VIEW -->
+      <!-- HOME VIEW -->
       <div id="homeView">
         <!-- About -->
         <div class="section-card" id="about-us">
@@ -310,25 +327,25 @@
           </div>
           <div class="product-grid" id="product-grid">
             <div class="product-card" data-category="dresses" onclick="showProductDetail('Mombasa Summer Dress')">
-              <div class="product-thumb">🧵 Summer Dress</div>
+              <div class="product-thumb" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23f0e6d3\'/%3E%3Ctext x=\'50\' y=\'110\' font-family=\'Arial\' font-size=\'16\' fill=\'%23666\'%3E👗 Summer Dress%3C/text%3E%3C/svg%3E');"></div>
               <p class="product-title">Mombasa Summer Dress</p>
               <p class="product-price">Ksh 3,500</p>
               <span class="product-cta">View →</span>
             </div>
             <div class="product-card" data-category="outerwear" onclick="showProductDetail('Nairobi Casual Blazer')">
-              <div class="product-thumb">🧥 Casual Blazer</div>
+              <div class="product-thumb" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23d4dce6\'/%3E%3Ctext x=\'50\' y=\'110\' font-family=\'Arial\' font-size=\'16\' fill=\'%23666\'%3E🧥 Blazer%3C/text%3E%3C/svg%3E');"></div>
               <p class="product-title">Nairobi Casual Blazer</p>
               <p class="product-price">Ksh 4,800</p>
               <span class="product-cta">View →</span>
             </div>
             <div class="product-card" data-category="outerwear" onclick="showProductDetail('Rift Valley Trench Coat')">
-              <div class="product-thumb">🧥 Trench Coat</div>
+              <div class="product-thumb" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23c9d4d9\'/%3E%3Ctext x=\'50\' y=\'110\' font-family=\'Arial\' font-size=\'16\' fill=\'%23666\'%3E🧥 Trench%3C/text%3E%3C/svg%3E');"></div>
               <p class="product-title">Rift Valley Trench Coat</p>
               <p class="product-price">Ksh 6,000</p>
               <span class="product-cta">View →</span>
             </div>
             <div class="product-card" data-category="dresses" onclick="showProductDetail('Karen Evening Gown')">
-              <div class="product-thumb">👗 Evening Gown</div>
+              <div class="product-thumb" style="background-image: url('data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'200\' height=\'200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23e8d5d5\'/%3E%3Ctext x=\'50\' y=\'110\' font-family=\'Arial\' font-size=\'16\' fill=\'%23666\'%3E👗 Evening Gown%3C/text%3E%3C/svg%3E');"></div>
               <p class="product-title">Karen Evening Gown</p>
               <p class="product-price">Ksh 8,500</p>
               <span class="product-cta">View →</span>
@@ -401,7 +418,7 @@
         </div>
       </div>
 
-      <!-- DETAIL PAGES (hidden by default) -->
+      <!-- DETAIL CONTAINER -->
       <div id="detailContainer"></div>
 
       <footer>© 2026 Nairobi Fashion Hub · Demo for analytics &amp; social tracking</footer>
@@ -410,25 +427,29 @@
 </div>
 
 <script>
-  // ----- DATA STORE -----
+  // ----- DATA STORE WITH IMAGES -----
   const products = {
     'Mombasa Summer Dress': {
       price: 'Ksh 3,500',
+      image: 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23f0e6d3\'/%3E%3Ctext x=\'120\' y=\'160\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3E👗 Summer Dress%3C/text%3E%3C/svg%3E',
       description: 'A light, breathable summer dress in vibrant African print. Perfect for warm days and casual outings. Made from 100% cotton, machine washable. Features a flattering A-line cut and pockets.',
       category: 'Dresses'
     },
     'Nairobi Casual Blazer': {
       price: 'Ksh 4,800',
+      image: 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23d4dce6\'/%3E%3Ctext x=\'120\' y=\'160\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3E🧥 Casual Blazer%3C/text%3E%3C/svg%3E',
       description: 'A sharp, versatile blazer tailored from premium Kenyan wool-blend. Ideal for office or smart-casual events. Available in navy, charcoal, and khaki. Fully lined with two internal pockets.',
       category: 'Outerwear'
     },
     'Rift Valley Trench Coat': {
       price: 'Ksh 6,000',
+      image: 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23c9d4d9\'/%3E%3Ctext x=\'120\' y=\'160\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3E🧥 Trench Coat%3C/text%3E%3C/svg%3E',
       description: 'Classic trench coat with a modern fit. Water-resistant, with a removable liner for Nairobi\'s changing weather. Double-breasted, belted waist, and storm flaps for extra protection.',
       category: 'Outerwear'
     },
     'Karen Evening Gown': {
       price: 'Ksh 8,500',
+      image: 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'300\'%3E%3Crect width=\'400\' height=\'300\' fill=\'%23e8d5d5\'/%3E%3Ctext x=\'120\' y=\'160\' font-family=\'Arial\' font-size=\'24\' fill=\'%23666\'%3E👗 Evening Gown%3C/text%3E%3C/svg%3E',
       description: 'Elegant floor-length gown with a subtle train. Designed for galas, weddings, and formal evenings. Made from luxe satin with delicate beadwork along the neckline and back.',
       category: 'Dresses'
     }
@@ -494,30 +515,42 @@ Our fabrics are sourced from local mills and we ensure they're pre-shrunk before
   };
 
   // ----- NAVIGATION -----
-  let currentView = 'home';
-
   function navigateTo(view) {
-    document.getElementById('homeView').style.display = view === 'home' ? 'block' : 'none';
-    document.getElementById('detailContainer').innerHTML = '';
-    currentView = view;
-    gtag('event', 'navigation', { 'event_category': 'engagement', 'event_label': view });
-    if (view === 'shop') {
-      document.getElementById('shop').scrollIntoView({ behavior: 'smooth' });
-    } else if (view === 'blog') {
-      document.getElementById('blog').scrollIntoView({ behavior: 'smooth' });
-    } else if (view === 'careers') {
-      document.getElementById('careers').scrollIntoView({ behavior: 'smooth' });
-    } else if (view === 'about') {
-      document.getElementById('about-us').scrollIntoView({ behavior: 'smooth' });
-    } else if (view === 'social') {
-      document.getElementById('social').scrollIntoView({ behavior: 'smooth' });
+    const homeView = document.getElementById('homeView');
+    const detailContainer = document.getElementById('detailContainer');
+    
+    // Hide everything first
+    homeView.style.display = 'none';
+    detailContainer.innerHTML = '';
+    
+    // Show home if requested
+    if (view === 'home') {
+      homeView.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // For other views, scroll to the relevant section in home
+      homeView.style.display = 'block';
+      const targetMap = {
+        'shop': 'shop',
+        'blog': 'blog',
+        'careers': 'careers',
+        'about': 'about-us',
+        'social': 'social'
+      };
+      const targetId = targetMap[view];
+      if (targetId) {
+        setTimeout(() => {
+          document.getElementById(targetId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
+      }
     }
+    
+    gtag('event', 'navigation', { 'event_category': 'engagement', 'event_label': view });
   }
 
   function showDetailPage(html) {
     document.getElementById('homeView').style.display = 'none';
     document.getElementById('detailContainer').innerHTML = html;
-    // scroll to top of detail
     document.getElementById('detailContainer').scrollIntoView({ behavior: 'smooth' });
   }
 
@@ -529,7 +562,8 @@ Our fabrics are sourced from local mills and we ensure they're pre-shrunk before
 
     const html = `
       <div class="detail-page active">
-        <div class="back-btn" onclick="navigateTo('shop')">← Back to Shop</div>
+        <button class="back-btn" onclick="navigateTo('home')">← Back to Home</button>
+        <img src="${product.image}" alt="${name}" class="product-image">
         <h2>${name}</h2>
         <div class="meta">${product.price} · ${product.category}</div>
         <div class="desc">${product.description}</div>
@@ -555,7 +589,7 @@ Our fabrics are sourced from local mills and we ensure they're pre-shrunk before
 
     const html = `
       <div class="detail-page active">
-        <div class="back-btn" onclick="navigateTo('home')">← Back to Home</div>
+        <button class="back-btn" onclick="navigateTo('home')">← Back to Home</button>
         <h2>${blog.title}</h2>
         <div class="desc" style="white-space: pre-line;">${blog.content}</div>
         <p style="margin-top: 20px; color: #4a4a5a;">📅 Published in the Nairobi Fashion Hub blog</p>
@@ -572,7 +606,7 @@ Our fabrics are sourced from local mills and we ensure they're pre-shrunk before
 
     const html = `
       <div class="detail-page active">
-        <div class="back-btn" onclick="navigateTo('home')">← Back to Home</div>
+        <button class="back-btn" onclick="navigateTo('home')">← Back to Home</button>
         <h2>${career.title}</h2>
         <ul class="detail-list">
           <li><strong>📍 Location</strong> ${career.location}</li>
@@ -606,33 +640,4 @@ Our fabrics are sourced from local mills and we ensure they're pre-shrunk before
     event.preventDefault();
     gtag('event', 'sign_up', { 'event_category': 'conversion', 'event_label': 'newsletter' });
     alert('Thanks for subscribing! (demo)');
-    document.getElementById('newsletter-email').value = '';
-    return false;
-  }
-
-  // ----- SCROLL DEPTH -----
-  (function() {
-    const milestones = [25, 50, 75, 100];
-    const reached = new Set();
-    function checkScroll() {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (docHeight <= 0) return;
-      const percent = Math.round((scrollTop / docHeight) * 100);
-      milestones.forEach(m => {
-        if (percent >= m && !reached.has(m)) {
-          reached.add(m);
-          gtag('event', 'scroll_depth', { 'event_category': 'engagement', 'event_label': m + '%' });
-        }
-      });
-    }
-    window.addEventListener('scroll', checkScroll);
-  })();
-
-  // ----- TIME ON PAGE -----
-  setTimeout(() => {
-    gtag('event', 'time_on_page', { 'event_category': 'engagement', 'event_label': '30_seconds' });
-  }, 30000);
-</script>
-</body>
-</html>
+    document.getElementById('newsletter-email').
