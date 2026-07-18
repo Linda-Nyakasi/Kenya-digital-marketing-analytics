@@ -5,29 +5,49 @@ const PRODUCTS = {
     name: 'Mombasa Summer Dress',
     price: 'Ksh 3,500',
     category: 'dresses',
-    img: 'https://loremflickr.com/600/450/summerdress,dress?lock=101',
+    thumb: 'https://images.pexels.com/photos/4352249/pexels-photo-4352249.jpeg?auto=compress&cs=tinysrgb&w=500&h=375&fit=crop',
+    img: 'https://images.pexels.com/photos/4352249/pexels-photo-4352249.jpeg?auto=compress&cs=tinysrgb&w=1200',
     desc: "A lightweight, breathable dress cut for Nairobi's warmer months, tailored locally with a flattering A-line fit. Available in three colourways."
   },
   'nairobi-blazer': {
     name: 'Nairobi Casual Blazer',
     price: 'Ksh 4,800',
     category: 'outerwear',
-    img: 'https://loremflickr.com/600/450/blazer,jacket?lock=102',
+    thumb: 'https://images.pexels.com/photos/7959652/pexels-photo-7959652.jpeg?auto=compress&cs=tinysrgb&w=500&h=375&fit=crop',
+    img: 'https://images.pexels.com/photos/7959652/pexels-photo-7959652.jpeg?auto=compress&cs=tinysrgb&w=1200',
     desc: "A versatile blazer that moves easily from the office to evening plans, made from a mid-weight cotton blend with a tailored waist."
   },
   'rift-trench': {
     name: 'Rift Valley Trench Coat',
     price: 'Ksh 6,000',
     category: 'outerwear',
-    img: 'https://loremflickr.com/600/450/trenchcoat,coat?lock=103',
+    thumb: 'https://images.pexels.com/photos/9968540/pexels-photo-9968540.jpeg?auto=compress&cs=tinysrgb&w=500&h=375&fit=crop',
+    img: 'https://images.pexels.com/photos/9968540/pexels-photo-9968540.jpeg?auto=compress&cs=tinysrgb&w=1200',
     desc: "A structured trench built for Nairobi's rainy season, with a water-resistant outer layer, belt closure, and classic tailoring."
   },
   'karen-gown': {
     name: 'Karen Evening Gown',
     price: 'Ksh 8,500',
     category: 'dresses',
-    img: 'https://loremflickr.com/600/450/eveninggown,gown?lock=104',
+    thumb: 'https://images.pexels.com/photos/26998033/pexels-photo-26998033.jpeg?auto=compress&cs=tinysrgb&w=500&h=375&fit=crop',
+    img: 'https://images.pexels.com/photos/26998033/pexels-photo-26998033.jpeg?auto=compress&cs=tinysrgb&w=1200',
     desc: "A floor-length evening gown finished with hand-stitched detailing, made to order in your size with a two-week lead time."
+  },
+  'ngong-denim': {
+    name: 'Ngong Denim Jacket',
+    price: 'Ksh 4,200',
+    category: 'casual',
+    thumb: 'https://images.pexels.com/photos/11653295/pexels-photo-11653295.jpeg?auto=compress&cs=tinysrgb&w=500&h=375&fit=crop',
+    img: 'https://images.pexels.com/photos/11653295/pexels-photo-11653295.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    desc: "A classic denim jacket for everyday wear, finished with a lightly distressed wash and sturdy topstitching that holds up to daily use."
+  },
+  'karura-sweater': {
+    name: 'Karura Knit Sweater',
+    price: 'Ksh 3,200',
+    category: 'casual',
+    thumb: 'https://images.pexels.com/photos/5488459/pexels-photo-5488459.jpeg?auto=compress&cs=tinysrgb&w=500&h=375&fit=crop',
+    img: 'https://images.pexels.com/photos/5488459/pexels-photo-5488459.jpeg?auto=compress&cs=tinysrgb&w=1200',
+    desc: "A soft knit sweater for Nairobi's cooler mornings and evenings, relaxed fit, easy to layer over a shirt or under a jacket."
   }
 };
 
