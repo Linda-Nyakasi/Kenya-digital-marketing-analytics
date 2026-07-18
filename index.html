@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZE3RNQ6L9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -9,95 +8,22 @@
       gtag('js', new Date());
       gtag('config', 'G-ZZE3RNQ6L9');
     </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nairobi Fashion Hub | Premium Local Wear</title>
-    <style>
-        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding: 40px 20px; background-color: #fcfcfd; color: #333; margin: 0; }
-
-        .layout { display: flex; max-width: 1000px; margin: 0 auto; align-items: flex-start; gap: 30px; }
-        .container { flex: 1; max-width: 780px; text-align: center; }
-
-        /* Sidebar navigation */
-        .sidebar { position: sticky; top: 20px; width: 170px; flex-shrink: 0; background: white; border: 1px solid #f0f0f0; border-radius: 12px; padding: 20px 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); }
-        .sidebar-title { font-weight: 700; font-size: 14px; margin-bottom: 15px; color: #111; text-align: left; }
-        .sidebar a { display: block; padding: 9px 10px; margin-bottom: 4px; border-radius: 6px; font-size: 14px; color: #555; text-decoration: none; text-align: left; transition: all 0.15s ease; }
-        .sidebar a:hover, .sidebar a.active { background: #111; color: white; }
-
-        @media (max-width: 800px) {
-            .layout { flex-direction: column; }
-            .sidebar { position: static; width: 100%; display: flex; overflow-x: auto; gap: 6px; box-sizing: border-box; }
-            .sidebar-title { display: none; }
-            .sidebar a { white-space: nowrap; margin-bottom: 0; }
-        }
-
-        .header-card { background: white; padding: 35px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 30px; border: 1px solid #f0f0f0; }
-        h1 { color: #111; font-size: 32px; margin: 0 0 10px 0; font-weight: 700; }
-        .subtitle { color: #666; font-size: 16px; max-width: 550px; margin: 0 auto 25px auto; line-height: 1.6; }
-
-        /* Category filter */
-        .filter-bar { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 25px; }
-        .filter-btn { padding: 8px 18px; border-radius: 20px; border: 1px solid #ddd; background: white; color: #444; font-size: 14px; cursor: pointer; transition: all 0.2s ease; }
-        .filter-btn.active, .filter-btn:hover { background: #111; color: white; border-color: #111; }
-
-        /* Product Grid Styling */
-        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 40px; }
-        .product-card { background: white; border: 1px solid #eaeaea; border-radius: 8px; padding: 20px; text-align: left; transition: transform 0.2s ease; cursor: pointer; }
-        .product-card:hover { transform: translateY(-3px); box-shadow: 0 6px 12px rgba(0,0,0,0.04); }
-        .product-thumb { width: 100%; height: 160px; background-color: #f0f2f5; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #888; font-size: 14px; margin-bottom: 15px; font-weight: 500; }
-        .product-title { font-size: 16px; font-weight: 600; margin: 0 0 5px 0; color: #222; }
-        .product-price { color: #e44d26; font-weight: 700; font-size: 15px; margin: 0 0 12px 0; }
-        .product-cta { display: inline-block; font-size: 13px; font-weight: 600; color: #111; text-decoration: underline; }
-
-        .whatsapp-btn { display: inline-block; padding: 16px 40px; background-color: #25D366; color: white; text-decoration: none; font-weight: bold; border-radius: 30px; font-size: 16px; transition: background 0.3s ease; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25); }
-        .whatsapp-btn:hover { background-color: #128C7E; }
-
-        /* Section cards */
-        .section-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 30px; border: 1px solid #f0f0f0; text-align: left; }
-        .section-card h2 { font-size: 20px; margin-top: 0; text-align: center; }
-        .testimonial { padding: 14px 0; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #555; }
-        .testimonial:last-child { border-bottom: none; }
-        .testimonial strong { color: #222; }
-
-        .career-btn { display: inline-block; margin-top: 8px; padding: 8px 16px; background: #111; color: white; border-radius: 6px; text-decoration: none; font-size: 13px; font-weight: 600; }
-        .career-btn:hover { background: #333; }
-
-        /* Newsletter form */
-        .newsletter-form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
-        .newsletter-form input[type="email"] { flex: 1; min-width: 200px; padding: 12px 16px; border-radius: 6px; border: 1px solid #ddd; font-size: 14px; }
-        .newsletter-form button { padding: 12px 22px; border-radius: 6px; border: none; background: #111; color: white; font-weight: 600; cursor: pointer; font-size: 14px; }
-        .newsletter-form button:hover { background: #333; }
-        .form-note { font-size: 12px; color: #999; margin-top: 10px; text-align: center; }
-
-        /* Social links */
-        .social-links { display: flex; justify-content: center; gap: 18px; margin-top: 10px; }
-        .social-links a { color: #555; text-decoration: none; font-size: 14px; border: 1px solid #eaeaea; padding: 8px 16px; border-radius: 20px; }
-        .social-links a:hover { background: #f5f5f5; }
-
-        footer { font-size: 12px; color: #aaa; margin-top: 20px; text-align: center; }
-
-        /* Modals */
-        .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5); align-items: center; justify-content: center; z-index: 1000; padding: 20px; }
-        .modal-overlay.open { display: flex; }
-        .modal-box { background: white; border-radius: 12px; padding: 30px; max-width: 420px; width: 100%; text-align: left; position: relative; max-height: 85vh; overflow-y: auto; }
-        .modal-close { position: absolute; top: 12px; right: 16px; background: none; border: none; font-size: 22px; cursor: pointer; color: #888; line-height: 1; }
-        .product-thumb-large { width: 100%; height: 200px; background: #f0f2f5; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #888; margin-bottom: 15px; font-size: 14px; }
-        .modal-box h3 { margin: 0 0 8px 0; font-size: 19px; color: #111; }
-        .modal-price { color: #e44d26; font-weight: 700; font-size: 15px; margin: 0 0 15px 0; }
-        .modal-desc { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 20px; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="layout">
-        <nav class="sidebar" id="sidebar">
+        <nav class="sidebar">
             <div class="sidebar-title">Menu</div>
-            <a href="#about-us" onclick="trackNavClick('about_us')">About Us</a>
-            <a href="#products" onclick="trackNavClick('products')">Products</a>
-            <a href="#testimonials" onclick="trackNavClick('testimonials')">Reviews</a>
-            <a href="#blog" onclick="trackNavClick('blog')">Blog</a>
-            <a href="#careers" onclick="trackNavClick('careers')">Careers</a>
-            <a href="#contact" onclick="trackNavClick('contact')">Contact</a>
+            <a href="index.html" class="active" onclick="trackNavClick('home')">Home</a>
+            <a href="about.html" onclick="trackNavClick('about_us')">About Us</a>
+            <a href="products.html" onclick="trackNavClick('products')">Products</a>
+            <a href="reviews.html" onclick="trackNavClick('reviews')">Reviews</a>
+            <a href="blog.html" onclick="trackNavClick('blog')">Blog</a>
+            <a href="careers.html" onclick="trackNavClick('careers')">Careers</a>
+            <a href="contact.html" onclick="trackNavClick('contact')">Contact</a>
         </nav>
 
         <div class="container">
@@ -106,302 +32,28 @@
                 <p class="subtitle">Premium, locally tailored contemporary designs delivered directly to your doorstep within Nairobi.</p>
                 <a href="https://wa.me/254747990254?text=Hi!%20I%20am%20inquiring%20about%20your%20designs%20from%20Social%20Media."
                    class="whatsapp-btn"
-                   id="whatsapp-conversion-link"
-                   onclick="gtag('event', 'whatsapp_click', { 'event_category': 'engagement', 'event_label': 'header_cta' });">
+                   onclick="gtag('event', 'whatsapp_click', { 'event_category': 'engagement', 'event_label': 'home_hero' });">
                     Order / Inquire via WhatsApp
                 </a>
+                <div class="hero-links">
+                    <a href="products.html" onclick="trackNavClick('products')">Browse Products</a>
+                    <a href="about.html" onclick="trackNavClick('about_us')">Our Story</a>
+                    <a href="careers.html" onclick="trackNavClick('careers')">We're Hiring</a>
+                </div>
             </div>
 
-            <!-- About Us section -->
-            <div class="section-card" id="about-us" data-track-section>
-                <h2>About Us</h2>
-                <p style="font-size:14px; color:#555; line-height:1.7;">
-                    Nairobi Fashion Hub started in 2021 as a small tailoring outfit in South B, serving friends and family
-                    looking for well-fitted, affordable contemporary wear. Today we work with a network of local tailors
-                    and fabric suppliers across Nairobi to bring custom and ready-to-wear pieces to customers across Kenya,
-                    with same-day delivery available within the city. Every piece is inspected for quality before it leaves
-                    our workshop.
+            <div class="section-card">
+                <h2>Locally tailored, delivered fast</h2>
+                <p style="font-size:14px; color:var(--muted); line-height:1.7; text-align:center;">
+                    From everyday wear to occasion pieces, every item is cut and finished in our South B workshop.
+                    Explore the collection, read what customers are saying, or reach out directly on WhatsApp to place an order.
                 </p>
-            </div>
-
-            <!-- Products section -->
-            <div id="products" data-track-section>
-                <div class="filter-bar">
-                    <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
-                    <button class="filter-btn" onclick="filterCategory('dresses', this)">Dresses</button>
-                    <button class="filter-btn" onclick="filterCategory('outerwear', this)">Outerwear</button>
-                </div>
-
-                <div class="product-grid" id="product-grid">
-                    <div class="product-card" data-category="dresses" onclick="openProductModal('mombasa-dress')">
-                        <div class="product-thumb">📍 Clothing Item Visual Placeholder</div>
-                        <p class="product-title">Mombasa Summer Dress</p>
-                        <p class="product-price">Ksh 3,500</p>
-                        <span class="product-cta">View details →</span>
-                    </div>
-                    <div class="product-card" data-category="outerwear" onclick="openProductModal('nairobi-blazer')">
-                        <div class="product-thumb">📍 Clothing Item Visual Placeholder</div>
-                        <p class="product-title">Nairobi Casual Blazer</p>
-                        <p class="product-price">Ksh 4,800</p>
-                        <span class="product-cta">View details →</span>
-                    </div>
-                    <div class="product-card" data-category="outerwear" onclick="openProductModal('rift-trench')">
-                        <div class="product-thumb">📍 Clothing Item Visual Placeholder</div>
-                        <p class="product-title">Rift Valley Trench Coat</p>
-                        <p class="product-price">Ksh 6,000</p>
-                        <span class="product-cta">View details →</span>
-                    </div>
-                    <div class="product-card" data-category="dresses" onclick="openProductModal('karen-gown')">
-                        <div class="product-thumb">📍 Clothing Item Visual Placeholder</div>
-                        <p class="product-title">Karen Evening Gown</p>
-                        <p class="product-price">Ksh 8,500</p>
-                        <span class="product-cta">View details →</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Testimonials section -->
-            <div class="section-card" id="testimonials" data-track-section>
-                <h2>What customers are saying</h2>
-                <div class="testimonial"><strong>Achieng W.</strong>, Nairobi: "Fast delivery and the fit was perfect."</div>
-                <div class="testimonial"><strong>Brian K.</strong>, Kiambu: "The trench coat quality exceeded what I expected for the price."</div>
-                <div class="testimonial"><strong>Faith N.</strong>, Nairobi: "Ordered twice already, WhatsApp checkout was easy."</div>
-            </div>
-
-            <!-- Blog section -->
-            <div class="section-card" id="blog" data-track-section>
-                <h2>From the Blog</h2>
-                <div class="testimonial">
-                    <strong>5 Ways to Style a Trench Coat for Nairobi Weather</strong><br>
-                    A short guide to layering trench coats through the rainy and dry seasons.
-                    <br><a href="#" onclick="openBlogModal('trench-styling'); return false;" style="color:#111; font-weight:600;">Read more →</a>
-                </div>
-                <div class="testimonial">
-                    <strong>Behind the Seams: Meet Our Tailors</strong><br>
-                    Get to know the team hand-finishing every piece in our South B workshop.
-                    <br><a href="#" onclick="openBlogModal('meet-tailors'); return false;" style="color:#111; font-weight:600;">Read more →</a>
-                </div>
-                <div class="testimonial">
-                    <strong>Caring for Locally Made Fabrics</strong><br>
-                    Simple washing and storage tips to keep your pieces looking new for longer.
-                    <br><a href="#" onclick="openBlogModal('fabric-care'); return false;" style="color:#111; font-weight:600;">Read more →</a>
-                </div>
-            </div>
-
-            <!-- Careers section -->
-            <div class="section-card" id="careers" data-track-section>
-                <h2>Careers</h2>
-                <p style="font-size:14px; color:#555; line-height:1.7;">
-                    We're a growing team and always keen to hear from skilled tailors, pattern makers, and delivery riders
-                    based in Nairobi. Openings are posted here as they come up.
-                </p>
-                <div class="testimonial">
-                    <strong>Tailor / Seamstress</strong>, Nairobi (Full-time)<br>
-                    Experience with contemporary womenswear preferred.<br>
-                    <a class="career-btn"
-                       href="https://wa.me/254799023508?text=Hi!%20I%20am%20inquiring%20about%20the%20Tailor%20position."
-                       onclick="trackCareerClick('tailor_seamstress');">Apply via WhatsApp</a>
-                </div>
-                <div class="testimonial">
-                    <strong>Delivery Rider</strong>, Nairobi (Part-time)<br>
-                    Own motorbike and valid license required.<br>
-                    <a class="career-btn"
-                       href="https://wa.me/254799023508?text=Hi!%20I%20am%20inquiring%20about%20the%20Delivery%20Rider%20position."
-                       onclick="trackCareerClick('delivery_rider');">Apply via WhatsApp</a>
-                </div>
-            </div>
-
-            <!-- Newsletter and social section -->
-            <div id="contact" data-track-section>
-                <div class="section-card">
-                    <h2>Get new arrivals in your inbox</h2>
-                    <form class="newsletter-form" onsubmit="return handleNewsletterSubmit(event)">
-                        <input type="email" id="newsletter-email" placeholder="you@example.com" required>
-                        <button type="submit">Subscribe</button>
-                    </form>
-                    <p class="form-note">No spam, just new drops and offers.</p>
-                </div>
-
-                <div class="section-card">
-                    <h2>Follow us</h2>
-                    <div class="social-links">
-                        <a href="https://instagram.com" target="_blank" rel="noopener"
-                           onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'instagram' });">Instagram</a>
-                        <a href="https://facebook.com" target="_blank" rel="noopener"
-                           onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'facebook' });">Facebook</a>
-                        <a href="https://tiktok.com" target="_blank" rel="noopener"
-                           onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'tiktok' });">TikTok</a>
-                        <a href="https://x.com" target="_blank" rel="noopener"
-                           onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'x_twitter' });">X (Twitter)</a>
-                    </div>
-                </div>
             </div>
 
             <footer>&copy; 2026 Nairobi Fashion Hub. Demo site for analytics testing purposes.</footer>
         </div>
     </div>
 
-    <!-- Product modal -->
-    <div class="modal-overlay" id="product-modal">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeProductModal()">&times;</button>
-            <div class="product-thumb-large" id="modal-product-thumb">📍 Clothing Item Visual Placeholder</div>
-            <h3 id="modal-product-title"></h3>
-            <p class="modal-price" id="modal-product-price"></p>
-            <p class="modal-desc" id="modal-product-desc"></p>
-            <a id="modal-product-whatsapp" class="whatsapp-btn" href="#" target="_blank" rel="noopener">Enquire on WhatsApp</a>
-        </div>
-    </div>
-
-    <!-- Blog modal -->
-    <div class="modal-overlay" id="blog-modal">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeBlogModal()">&times;</button>
-            <h3 id="modal-blog-title"></h3>
-            <p class="modal-desc" id="modal-blog-body"></p>
-        </div>
-    </div>
-
-    <script>
-        const WHATSAPP_NUMBER = '254747990254';
-
-        const PRODUCTS = {
-            'mombasa-dress': { name: 'Mombasa Summer Dress', price: 'Ksh 3,500', desc: "A lightweight, breathable dress cut for Nairobi's warmer months, tailored locally with a flattering A-line fit." },
-            'nairobi-blazer': { name: 'Nairobi Casual Blazer', price: 'Ksh 4,800', desc: "A versatile blazer that moves easily from the office to evening plans, made from a mid-weight cotton blend." },
-            'rift-trench': { name: 'Rift Valley Trench Coat', price: 'Ksh 6,000', desc: "A structured trench built for Nairobi's rainy season, with a water-resistant outer layer and classic tailoring." },
-            'karen-gown': { name: 'Karen Evening Gown', price: 'Ksh 8,500', desc: "A floor-length evening gown finished with hand-stitched detailing, made to order in your size." }
-        };
-
-        const BLOG_POSTS = {
-            'trench-styling': {
-                title: '5 Ways to Style a Trench Coat for Nairobi Weather',
-                body: "Layer it over a simple tee and jeans for wet-season mornings, or belt it over a dress for evening events. In the dry season, wear it open over lighter fabrics as a structured layer rather than for warmth. A trench also works well thrown over gym wear for the school run, and pairs naturally with boots when the ground is muddy after rain."
-            },
-            'meet-tailors': {
-                title: 'Behind the Seams: Meet Our Tailors',
-                body: "Our workshop in South B is run by a small team of tailors, most of whom trained through informal apprenticeships before joining us. Each piece passes through at least two pairs of hands, cutting and stitching, before a final quality check. We work in small batches so fit issues get caught early rather than after delivery."
-            },
-            'fabric-care': {
-                title: 'Caring for Locally Made Fabrics',
-                body: "Hand wash or use a gentle cycle in cold water to protect stitching and colour. Air dry away from direct sun, since heat and UV exposure are the fastest way to fade locally dyed fabric. Store folded rather than on wire hangers for structured pieces like blazers and coats, to keep the shoulder shape intact."
-            }
-        };
-
-        function trackNavClick(section) {
-            gtag('event', 'nav_click', { 'event_category': 'navigation', 'event_label': section });
-        }
-
-        function trackCareerClick(roleId) {
-            gtag('event', 'career_click', { 'event_category': 'careers', 'event_label': roleId });
-        }
-
-        function openProductModal(id) {
-            const p = PRODUCTS[id];
-            if (!p) return;
-            document.getElementById('modal-product-title').textContent = p.name;
-            document.getElementById('modal-product-price').textContent = p.price;
-            document.getElementById('modal-product-desc').textContent = p.desc;
-            const waText = encodeURIComponent('Hi! I am interested in the ' + p.name + ' (' + p.price + ').');
-            document.getElementById('modal-product-whatsapp').href = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + waText;
-            document.getElementById('product-modal').classList.add('open');
-
-            const numericValue = parseInt(p.price.replace(/[^0-9]/g, ''), 10);
-            gtag('event', 'view_item', { 'event_category': 'product', 'event_label': p.name, 'value': numericValue });
-        }
-
-        function closeProductModal() {
-            document.getElementById('product-modal').classList.remove('open');
-        }
-
-        function openBlogModal(id) {
-            const post = BLOG_POSTS[id];
-            if (!post) return;
-            document.getElementById('modal-blog-title').textContent = post.title;
-            document.getElementById('modal-blog-body').textContent = post.body;
-            document.getElementById('blog-modal').classList.add('open');
-            gtag('event', 'blog_click', { 'event_category': 'content', 'event_label': id });
-        }
-
-        function closeBlogModal() {
-            document.getElementById('blog-modal').classList.remove('open');
-        }
-
-        function filterCategory(category, btn) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-
-            document.querySelectorAll('.product-card').forEach(card => {
-                const show = category === 'all' || card.getAttribute('data-category') === category;
-                card.style.display = show ? '' : 'none';
-            });
-
-            gtag('event', 'filter_select', { 'event_category': 'engagement', 'event_label': category });
-        }
-
-        function handleNewsletterSubmit(event) {
-            event.preventDefault();
-            gtag('event', 'sign_up', { 'event_category': 'conversion', 'event_label': 'newsletter' });
-            alert('Thanks for subscribing! (demo form, no email is actually sent)');
-            document.getElementById('newsletter-email').value = '';
-            return false;
-        }
-
-        // Close modals on overlay click (outside the box)
-        document.querySelectorAll('.modal-overlay').forEach(overlay => {
-            overlay.addEventListener('click', function (e) {
-                if (e.target === overlay) overlay.classList.remove('open');
-            });
-        });
-
-        // Scroll depth tracking at 25/50/75/100 percent milestones
-        (function () {
-            const milestones = [25, 50, 75, 100];
-            const reached = new Set();
-
-            function checkScroll() {
-                const scrollTop = window.scrollY;
-                const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-                if (docHeight <= 0) return;
-                const percent = Math.round((scrollTop / docHeight) * 100);
-
-                milestones.forEach(m => {
-                    if (percent >= m && !reached.has(m)) {
-                        reached.add(m);
-                        gtag('event', 'scroll_depth', { 'event_category': 'engagement', 'event_label': m + '%' });
-                    }
-                });
-            }
-
-            window.addEventListener('scroll', checkScroll);
-        })();
-
-        // Section view tracking, fires once per section as it enters the viewport
-        (function () {
-            const seen = new Set();
-            const sections = document.querySelectorAll('[data-track-section]');
-            const sidebarLinks = document.querySelectorAll('.sidebar a');
-
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        if (!seen.has(entry.target.id)) {
-                            seen.add(entry.target.id);
-                            gtag('event', 'section_view', { 'event_category': 'engagement', 'event_label': entry.target.id });
-                        }
-                        sidebarLinks.forEach(function (link) {
-                            link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
-                        });
-                    }
-                });
-            }, { threshold: 0.4 });
-
-            sections.forEach(function (section) { observer.observe(section); });
-        })();
-
-        // Time-on-page milestone at 30 seconds
-        setTimeout(function () {
-            gtag('event', 'time_on_page', { 'event_category': 'engagement', 'event_label': '30_seconds' });
-        }, 30000);
-    </script>
+    <script src="main.js" defer></script>
 </body>
 </html>
