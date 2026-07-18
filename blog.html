@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="layout">
-        <nav class="sidebar">
-            <div class="sidebar-title">Menu</div>
+    <nav class="topbar">
+        <a href="index.html" class="topbar-brand">Nairobi Fashion Hub</a>
+        <div class="topbar-links">
             <a href="index.html" onclick="trackNavClick('home')">Home</a>
             <a href="about.html" onclick="trackNavClick('about_us')">About Us</a>
             <a href="products.html" onclick="trackNavClick('products')">Products</a>
@@ -24,42 +24,46 @@
             <a href="blog.html" class="active" onclick="trackNavClick('blog')">Blog</a>
             <a href="careers.html" onclick="trackNavClick('careers')">Careers</a>
             <a href="contact.html" onclick="trackNavClick('contact')">Contact</a>
-        </nav>
+        </div>
+    </nav>
 
-        <div class="container">
+    <div class="container">
+
+        <!-- LIST VIEW -->
+        <div id="blog-list-view">
             <div class="header-card">
                 <h1>From the Blog</h1>
                 <p class="subtitle">Styling tips, workshop stories, and fabric care advice.</p>
             </div>
 
             <div class="section-card">
-                <div class="testimonial">
-                    <strong>5 Ways to Style a Trench Coat for Nairobi Weather</strong><br>
-                    A short guide to layering trench coats through the rainy and dry seasons.
-                    <br><a href="#" onclick="openBlogModal('trench-styling'); return false;" style="color:var(--heading); font-weight:600;">Read more &rarr;</a>
+                <div class="list-row" onclick="showBlogDetail('trench-styling')">
+                    <p class="list-row-title">5 Ways to Style a Trench Coat for Nairobi Weather</p>
+                    <p class="list-row-excerpt">A short guide to layering trench coats through the rainy and dry seasons.</p>
+                    <span class="list-row-cta">Read more &rarr;</span>
                 </div>
-                <div class="testimonial">
-                    <strong>Behind the Seams: Meet Our Tailors</strong><br>
-                    Get to know the team hand-finishing every piece in our South B workshop.
-                    <br><a href="#" onclick="openBlogModal('meet-tailors'); return false;" style="color:var(--heading); font-weight:600;">Read more &rarr;</a>
+                <div class="list-row" onclick="showBlogDetail('meet-tailors')">
+                    <p class="list-row-title">Behind the Seams: Meet Our Tailors</p>
+                    <p class="list-row-excerpt">Get to know the team hand-finishing every piece in our South B workshop.</p>
+                    <span class="list-row-cta">Read more &rarr;</span>
                 </div>
-                <div class="testimonial">
-                    <strong>Caring for Locally Made Fabrics</strong><br>
-                    Simple washing and storage tips to keep your pieces looking new for longer.
-                    <br><a href="#" onclick="openBlogModal('fabric-care'); return false;" style="color:var(--heading); font-weight:600;">Read more &rarr;</a>
+                <div class="list-row" onclick="showBlogDetail('fabric-care')">
+                    <p class="list-row-title">Caring for Locally Made Fabrics</p>
+                    <p class="list-row-excerpt">Simple washing and storage tips to keep your pieces looking new for longer.</p>
+                    <span class="list-row-cta">Read more &rarr;</span>
                 </div>
             </div>
 
             <footer>&copy; 2026 Nairobi Fashion Hub. Demo site for analytics testing purposes.</footer>
         </div>
-    </div>
 
-    <div class="modal-overlay" id="blog-modal">
-        <div class="modal-box">
-            <button class="modal-close" onclick="closeBlogModal()">&times;</button>
-            <h3 id="modal-blog-title"></h3>
-            <p class="modal-desc" id="modal-blog-body"></p>
+        <!-- DETAIL VIEW -->
+        <div id="blog-detail-view" class="detail-view">
+            <button class="back-btn" onclick="backToBlog()">&larr; Back to Blog</button>
+            <h2 class="detail-title" id="detail-blog-title"></h2>
+            <p class="detail-body" id="detail-blog-body"></p>
         </div>
+
     </div>
 
     <script src="main.js" defer></script>

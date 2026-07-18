@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="layout">
-        <nav class="sidebar">
-            <div class="sidebar-title">Menu</div>
+    <nav class="topbar">
+        <a href="index.html" class="topbar-brand">Nairobi Fashion Hub</a>
+        <div class="topbar-links">
             <a href="index.html" onclick="trackNavClick('home')">Home</a>
             <a href="about.html" onclick="trackNavClick('about_us')">About Us</a>
             <a href="products.html" onclick="trackNavClick('products')">Products</a>
@@ -24,44 +24,44 @@
             <a href="blog.html" onclick="trackNavClick('blog')">Blog</a>
             <a href="careers.html" onclick="trackNavClick('careers')">Careers</a>
             <a href="contact.html" class="active" onclick="trackNavClick('contact')">Contact</a>
-        </nav>
-
-        <div class="container">
-            <div class="header-card">
-                <h1>Get In Touch</h1>
-                <p class="subtitle">Order directly on WhatsApp, or follow us for new arrivals.</p>
-                <a href="https://wa.me/254747990254?text=Hi!%20I%20am%20inquiring%20about%20your%20designs."
-                   class="whatsapp-btn"
-                   onclick="gtag('event', 'whatsapp_click', { 'event_category': 'engagement', 'event_label': 'contact_page' });">
-                    Message Us on WhatsApp
-                </a>
-            </div>
-
-            <div class="section-card">
-                <h2>Get new arrivals in your inbox</h2>
-                <form class="newsletter-form" onsubmit="return handleNewsletterSubmit(event)">
-                    <input type="email" id="newsletter-email" placeholder="you@example.com" required>
-                    <button type="submit">Subscribe</button>
-                </form>
-                <p class="form-note">No spam, just new drops and offers.</p>
-            </div>
-
-            <div class="section-card">
-                <h2>Follow us</h2>
-                <div class="social-links">
-                    <a href="https://instagram.com" target="_blank" rel="noopener"
-                       onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'instagram' });">Instagram</a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener"
-                       onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'facebook' });">Facebook</a>
-                    <a href="https://tiktok.com" target="_blank" rel="noopener"
-                       onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'tiktok' });">TikTok</a>
-                    <a href="https://x.com" target="_blank" rel="noopener"
-                       onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'x_twitter' });">X (Twitter)</a>
-                </div>
-            </div>
-
-            <footer>&copy; 2026 Nairobi Fashion Hub. Demo site for analytics testing purposes.</footer>
         </div>
+    </nav>
+
+    <div class="container">
+        <div class="header-card">
+            <h1>Get In Touch</h1>
+            <p class="subtitle">Order directly on WhatsApp, or follow us for new arrivals.</p>
+            <a href="https://wa.me/254747990254?text=Hi!%20I%20am%20inquiring%20about%20your%20designs."
+               class="whatsapp-btn"
+               onclick="gtag('event', 'whatsapp_click', { 'event_category': 'engagement', 'event_label': 'contact_page' });">
+                Message Us on WhatsApp
+            </a>
+        </div>
+
+        <div class="section-card">
+            <h2>Get new arrivals in your inbox</h2>
+            <form class="newsletter-form" onsubmit="return handleNewsletterSubmit(event)">
+                <input type="email" id="newsletter-email" placeholder="you@example.com" required>
+                <button type="submit">Subscribe</button>
+            </form>
+            <p class="form-note">No spam, just new drops and offers.</p>
+        </div>
+
+        <div class="section-card">
+            <h2>Follow us</h2>
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank" rel="noopener"
+                   onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'instagram' });">Instagram</a>
+                <a href="https://facebook.com" target="_blank" rel="noopener"
+                   onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'facebook' });">Facebook</a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener"
+                   onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'tiktok' });">TikTok</a>
+                <a href="https://x.com" target="_blank" rel="noopener"
+                   onclick="gtag('event', 'outbound_click', { 'event_category': 'social', 'event_label': 'x_twitter' });">X (Twitter)</a>
+            </div>
+        </div>
+
+        <footer>&copy; 2026 Nairobi Fashion Hub. Demo site for analytics testing purposes.</footer>
     </div>
 
     <script src="main.js" defer></script>

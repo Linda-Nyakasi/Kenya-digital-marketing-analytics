@@ -14,9 +14,9 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="layout">
-        <nav class="sidebar">
-            <div class="sidebar-title">Menu</div>
+    <nav class="topbar">
+        <a href="index.html" class="topbar-brand">Nairobi Fashion Hub</a>
+        <div class="topbar-links">
             <a href="index.html" onclick="trackNavClick('home')">Home</a>
             <a href="about.html" onclick="trackNavClick('about_us')">About Us</a>
             <a href="products.html" onclick="trackNavClick('products')">Products</a>
@@ -24,99 +24,63 @@
             <a href="blog.html" onclick="trackNavClick('blog')">Blog</a>
             <a href="careers.html" class="active" onclick="trackNavClick('careers')">Careers</a>
             <a href="contact.html" onclick="trackNavClick('contact')">Contact</a>
-        </nav>
+        </div>
+    </nav>
 
-        <div class="container">
+    <div class="container">
+
+        <!-- LIST VIEW -->
+        <div id="careers-list-view">
             <div class="header-card">
                 <h1>Careers</h1>
                 <p class="subtitle">We're a small, growing team based in South B. Tap a role below for the full description.</p>
             </div>
 
-            <details class="job-listing" ontoggle="trackCareerView(this, 'tailor_seamstress')">
-                <summary>
-                    Tailor / Seamstress
-                    <span class="job-meta">Nairobi (South B, on-site) &middot; Full-time</span>
-                </summary>
-                <div class="job-body">
-                    <h4>Location</h4>
-                    <p>South B workshop, Nairobi. This is an on-site role, not remote.</p>
-
-                    <h4>Salary</h4>
-                    <p>Ksh 25,000 to 35,000 per month, based on experience, reviewed after a 3-month probation period.</p>
-
-                    <h4>Minimum requirements</h4>
-                    <ul>
-                        <li>At least 2 years of hands-on tailoring experience</li>
-                        <li>Comfortable operating industrial sewing machines</li>
-                        <li>Basic pattern-reading ability</li>
-                    </ul>
-
-                    <h4>Desired requirements</h4>
-                    <ul>
-                        <li>Experience with womenswear tailoring specifically</li>
-                        <li>Familiarity with alterations and custom fittings</li>
-                        <li>A strong eye for finishing detail</li>
-                    </ul>
-
-                    <h4>What success looks like</h4>
-                    <ul>
-                        <li>Garments consistently pass quality check on first review</li>
-                        <li>Turnaround time per piece stays within workshop targets</li>
-                        <li>Client alteration requests drop over time as fit accuracy improves at first cut</li>
-                    </ul>
-
-                    <h4>What it means to work with us</h4>
-                    <p>You'll join a small team with direct mentorship from senior tailors, and a real path to move into pattern-making as the brand grows.</p>
-
-                    <a class="career-btn"
-                       href="https://wa.me/254747990254?text=Hi!%20I%20am%20inquiring%20about%20the%20Tailor%20/%20Seamstress%20position."
-                       onclick="trackCareerApplyClick('tailor_seamstress');" target="_blank" rel="noopener">Apply via WhatsApp</a>
+            <div class="section-card">
+                <div class="list-row" onclick="showCareerDetail('tailor-seamstress')">
+                    <p class="list-row-title">Tailor / Seamstress</p>
+                    <p class="list-row-meta">Nairobi (South B, on-site) &middot; Full-time</p>
+                    <span class="list-row-cta">View full description &rarr;</span>
                 </div>
-            </details>
-
-            <details class="job-listing" ontoggle="trackCareerView(this, 'delivery_rider')">
-                <summary>
-                    Delivery Rider
-                    <span class="job-meta">Nairobi &amp; surrounding areas &middot; Part-time</span>
-                </summary>
-                <div class="job-body">
-                    <h4>Location</h4>
-                    <p>Based out of the South B workshop, covering Nairobi and nearby areas.</p>
-
-                    <h4>Salary</h4>
-                    <p>Ksh 800 to 1,200 per delivery day, plus a fuel allowance, paid weekly.</p>
-
-                    <h4>Minimum requirements</h4>
-                    <ul>
-                        <li>Valid motorbike license</li>
-                        <li>Own motorbike in good working condition</li>
-                        <li>Smartphone for order coordination via WhatsApp</li>
-                    </ul>
-
-                    <h4>Desired requirements</h4>
-                    <ul>
-                        <li>Familiarity with Nairobi's road network and traffic patterns</li>
-                        <li>Prior delivery or courier experience</li>
-                    </ul>
-
-                    <h4>What success looks like</h4>
-                    <ul>
-                        <li>On-time delivery rate above 95 percent</li>
-                        <li>Low breakage or damage incidents</li>
-                        <li>Positive customer feedback on handling of orders</li>
-                    </ul>
-
-                    <h4>What it means to work with us</h4>
-                    <p>Flexible scheduling around your availability, direct coordination with the workshop over WhatsApp, and the option to move to full-time as order volume grows.</p>
-
-                    <a class="career-btn"
-                       href="https://wa.me/254747990254?text=Hi!%20I%20am%20inquiring%20about%20the%20Delivery%20Rider%20position."
-                       onclick="trackCareerApplyClick('delivery_rider');" target="_blank" rel="noopener">Apply via WhatsApp</a>
+                <div class="list-row" onclick="showCareerDetail('delivery-rider')">
+                    <p class="list-row-title">Delivery Rider</p>
+                    <p class="list-row-meta">Nairobi &amp; surrounding areas &middot; Part-time</p>
+                    <span class="list-row-cta">View full description &rarr;</span>
                 </div>
-            </details>
+            </div>
 
             <footer>&copy; 2026 Nairobi Fashion Hub. Demo site for analytics testing purposes. Roles listed are fictional.</footer>
         </div>
+
+        <!-- DETAIL VIEW -->
+        <div id="careers-detail-view" class="detail-view">
+            <button class="back-btn" onclick="backToCareers()">&larr; Back to Careers</button>
+            <h2 class="detail-title" id="detail-career-title"></h2>
+            <p class="detail-meta" id="detail-career-meta"></p>
+
+            <div class="detail-body">
+                <h4>Location</h4>
+                <p id="detail-career-location"></p>
+
+                <h4>Salary</h4>
+                <p id="detail-career-salary"></p>
+
+                <h4>Minimum requirements</h4>
+                <ul id="detail-career-minreq"></ul>
+
+                <h4>Desired requirements</h4>
+                <ul id="detail-career-desiredreq"></ul>
+
+                <h4>What success looks like</h4>
+                <ul id="detail-career-success"></ul>
+
+                <h4>What it means to work with us</h4>
+                <p id="detail-career-culture"></p>
+            </div>
+
+            <a id="detail-career-apply" class="career-btn" href="#" target="_blank" rel="noopener" onclick="trackCareerApplyClick(document.getElementById('detail-career-title').textContent)">Apply via WhatsApp</a>
+        </div>
+
     </div>
 
     <script src="main.js" defer></script>
