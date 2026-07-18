@@ -1,4 +1,4 @@
-# Nairobi Fashion Hub (GA4 Tracking Demo)
+# Nairobi Fashion Vibe (GA4 Tracking Demo)
 
 A dummy e-commerce landing page built to demonstrate Google Analytics 4 (GA4) event tracking and social-to-WhatsApp funnel analysis, hosted on GitHub Pages.
 
