@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZE3RNQ6L9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZZE3RNQ6L9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Nairobi Fashion Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="layout">
+        <nav class="sidebar">
+            <div class="sidebar-title">Menu</div>
+            <a href="index.html" onclick="trackNavClick('home')">Home</a>
+            <a href="about.html" onclick="trackNavClick('about_us')">About Us</a>
+            <a href="products.html" onclick="trackNavClick('products')">Products</a>
+            <a href="reviews.html" onclick="trackNavClick('reviews')">Reviews</a>
+            <a href="blog.html" class="active" onclick="trackNavClick('blog')">Blog</a>
+            <a href="careers.html" onclick="trackNavClick('careers')">Careers</a>
+            <a href="contact.html" onclick="trackNavClick('contact')">Contact</a>
+        </nav>
+
+        <div class="container">
+            <div class="header-card">
+                <h1>From the Blog</h1>
+                <p class="subtitle">Styling tips, workshop stories, and fabric care advice.</p>
+            </div>
+
+            <div class="section-card">
+                <div class="testimonial">
+                    <strong>5 Ways to Style a Trench Coat for Nairobi Weather</strong><br>
+                    A short guide to layering trench coats through the rainy and dry seasons.
+                    <br><a href="#" onclick="openBlogModal('trench-styling'); return false;" style="color:var(--heading); font-weight:600;">Read more &rarr;</a>
+                </div>
+                <div class="testimonial">
+                    <strong>Behind the Seams: Meet Our Tailors</strong><br>
+                    Get to know the team hand-finishing every piece in our South B workshop.
+                    <br><a href="#" onclick="openBlogModal('meet-tailors'); return false;" style="color:var(--heading); font-weight:600;">Read more &rarr;</a>
+                </div>
+                <div class="testimonial">
+                    <strong>Caring for Locally Made Fabrics</strong><br>
+                    Simple washing and storage tips to keep your pieces looking new for longer.
+                    <br><a href="#" onclick="openBlogModal('fabric-care'); return false;" style="color:var(--heading); font-weight:600;">Read more &rarr;</a>
+                </div>
+            </div>
+
+            <footer>&copy; 2026 Nairobi Fashion Hub. Demo site for analytics testing purposes.</footer>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="blog-modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeBlogModal()">&times;</button>
+            <h3 id="modal-blog-title"></h3>
+            <p class="modal-desc" id="modal-blog-body"></p>
+        </div>
+    </div>
+
+    <script src="main.js" defer></script>
+</body>
+</html>

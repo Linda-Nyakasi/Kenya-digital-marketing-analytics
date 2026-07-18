@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZZE3RNQ6L9"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-ZZE3RNQ6L9');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Nairobi Fashion Hub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="layout">
+        <nav class="sidebar">
+            <div class="sidebar-title">Menu</div>
+            <a href="index.html" onclick="trackNavClick('home')">Home</a>
+            <a href="about.html" onclick="trackNavClick('about_us')">About Us</a>
+            <a href="products.html" class="active" onclick="trackNavClick('products')">Products</a>
+            <a href="reviews.html" onclick="trackNavClick('reviews')">Reviews</a>
+            <a href="blog.html" onclick="trackNavClick('blog')">Blog</a>
+            <a href="careers.html" onclick="trackNavClick('careers')">Careers</a>
+            <a href="contact.html" onclick="trackNavClick('contact')">Contact</a>
+        </nav>
+
+        <div class="container">
+            <div class="header-card">
+                <h1>Products</h1>
+                <p class="subtitle">Tap any item to view details and enquire directly on WhatsApp.</p>
+            </div>
+
+            <div class="filter-bar">
+                <button class="filter-btn active" onclick="filterCategory('all', this)">All</button>
+                <button class="filter-btn" onclick="filterCategory('dresses', this)">Dresses</button>
+                <button class="filter-btn" onclick="filterCategory('outerwear', this)">Outerwear</button>
+            </div>
+
+            <div class="product-grid" id="product-grid">
+                <div class="product-card" data-category="dresses" onclick="openProductModal('mombasa-dress')">
+                    <img class="product-thumb" src="https://picsum.photos/seed/mombasa-dress-nfh/400/300" alt="Mombasa Summer Dress">
+                    <p class="product-title">Mombasa Summer Dress</p>
+                    <p class="product-price">Ksh 3,500</p>
+                    <span class="product-cta">View details &rarr;</span>
+                </div>
+                <div class="product-card" data-category="outerwear" onclick="openProductModal('nairobi-blazer')">
+                    <img class="product-thumb" src="https://picsum.photos/seed/nairobi-blazer-nfh/400/300" alt="Nairobi Casual Blazer">
+                    <p class="product-title">Nairobi Casual Blazer</p>
+                    <p class="product-price">Ksh 4,800</p>
+                    <span class="product-cta">View details &rarr;</span>
+                </div>
+                <div class="product-card" data-category="outerwear" onclick="openProductModal('rift-trench')">
+                    <img class="product-thumb" src="https://picsum.photos/seed/rift-trench-nfh/400/300" alt="Rift Valley Trench Coat">
+                    <p class="product-title">Rift Valley Trench Coat</p>
+                    <p class="product-price">Ksh 6,000</p>
+                    <span class="product-cta">View details &rarr;</span>
+                </div>
+                <div class="product-card" data-category="dresses" onclick="openProductModal('karen-gown')">
+                    <img class="product-thumb" src="https://picsum.photos/seed/karen-gown-nfh/400/300" alt="Karen Evening Gown">
+                    <p class="product-title">Karen Evening Gown</p>
+                    <p class="product-price">Ksh 8,500</p>
+                    <span class="product-cta">View details &rarr;</span>
+                </div>
+            </div>
+
+            <footer>&copy; 2026 Nairobi Fashion Hub. Demo site for analytics testing purposes.</footer>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="product-modal">
+        <div class="modal-box">
+            <button class="modal-close" onclick="closeProductModal()">&times;</button>
+            <img class="product-thumb-large" id="modal-product-img" src="" alt="">
+            <h3 id="modal-product-title"></h3>
+            <p class="modal-price" id="modal-product-price"></p>
+            <p class="modal-desc" id="modal-product-desc"></p>
+            <a id="modal-product-whatsapp" class="whatsapp-btn" href="#" target="_blank" rel="noopener">Enquire on WhatsApp</a>
+        </div>
+    </div>
+
+    <script src="main.js" defer></script>
+</body>
+</html>
