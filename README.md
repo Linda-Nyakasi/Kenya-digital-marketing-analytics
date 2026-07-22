@@ -26,10 +26,38 @@ This is a genuine multi-page site rather than a single scrolling page, so each s
 
 ## What This Demonstrates
 
-- **UTM-based channel attribution**: social links are structured to carry campaign tags so that traffic from Instagram, TikTok, Facebook, and X can be isolated and compared inside GA4, rather than lumped into one generic "social" bucket.
+- **UTM-based channel attribution**: the site itself doesn't need any code for this. When the site's link is shared on Instagram, TikTok, Facebook, or X, that shared link carries UTM tags identifying the source. gtag.js (already installed on every page) reads these tags automatically when a visitor lands on the site, so traffic from each platform can be isolated and compared inside GA4, rather than lumped into one generic "social" bucket. See "How to Share This Site" below for ready-made links.
 - **Conversion tracking**: the WhatsApp inquiry button and newsletter signup form fire distinct GA4 events, so inquiries can be tied back to the channel that generated them.
 - **Content-level demand signals**: Products, Blog, and Careers each use a list view that expands into a full in-page detail view (with a Back button) when an item is clicked. This means GA4 can show not just that someone visited Products, but exactly which product, article, or job listing they opened, via `view_item`, `blog_click`, and `career_view` events labelled with the specific item.
 - **Navigation and engagement signals beyond pageviews**: top-nav clicks, category filter usage (Dresses, Outerwear, Casual), back-button usage, scroll depth (25/50/75/100%), and a 30-second time-on-page milestone all fire as custom events, giving a fuller picture of visitor quality than pageviews alone.
+
+## How to Share This Site (UTM Links)
+
+To make channel attribution actually show up in GA4, don't share the plain live site link. Use one of the tagged versions below instead, one per platform. Each carries `utm_source` (which platform), `utm_medium` (always `social` here), and `utm_campaign` (which push this belongs to, so different campaigns can be told apart later).
+
+**Instagram**
+```
+https://linda-nyakasi.github.io/Kenya-digital-marketing-analytics/?utm_source=instagram&utm_medium=social&utm_campaign=summer_launch
+```
+
+**TikTok**
+```
+https://linda-nyakasi.github.io/Kenya-digital-marketing-analytics/?utm_source=tiktok&utm_medium=social&utm_campaign=summer_launch
+```
+
+**Facebook**
+```
+https://linda-nyakasi.github.io/Kenya-digital-marketing-analytics/?utm_source=facebook&utm_medium=social&utm_campaign=summer_launch
+```
+
+**X (Twitter)**
+```
+https://linda-nyakasi.github.io/Kenya-digital-marketing-analytics/?utm_source=x&utm_medium=social&utm_campaign=summer_launch
+```
+
+Swap `summer_launch` for whatever the actual campaign is called each time (e.g. `blazer_promo`, `careers_push`), so campaigns stay distinguishable from each other in reports rather than all bleeding together. If the same link gets posted more than once on the same platform (e.g. two different Instagram posts), add `utm_content` to tell them apart, for example `&utm_content=story` vs `&utm_content=feed_post`.
+
+These tags are read automatically by gtag.js on landing, no code changes are needed on the site itself to support this. Attribution shows up in GA4 under Reports > Acquisition > Traffic acquisition (allow 24 to 48 hours for standard reports to populate), or immediately under Reports > Realtime for a quick check.
 
 ## Portfolio Use Case
 
